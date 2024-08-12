@@ -1,0 +1,11 @@
+version: "3"
+services:
+  llm-server:
+    container_name: llm-server
+    hostname: boyou.home.local
+    image: ollama/ollama:latest
+    ports:
+      - "127.0.0.1:11434:11434" 
+    volumes:
+      - /Users/boyouzho/llm-config:/root/.ollama
+    restart: unless-stopped
