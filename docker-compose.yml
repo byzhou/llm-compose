@@ -9,3 +9,15 @@ services:
     volumes:
       - /Users/boyouzho/llm-config:/root/.ollama
     restart: unless-stopped
+
+  web-ui:
+    container_name: web-ui
+    image: ghcr.io/open-webui/open-webui:main
+    volumes:
+      - /Users/boyouzho/llm-config/open-webui:/app/backend/data
+    ports:
+      - "127.0.0.1:3000:8080"
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    
